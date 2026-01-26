@@ -8,6 +8,8 @@ OxideUI is a serious UI framework designed from the ground up with Rust's princi
 
 Built with system programming discipline, OxideUI delivers native performance while maintaining the developer ergonomics of modern declarative UI frameworks.
 
+(was experimenting with bunch of things I will rewrite it for nightly release)
+
 ## Architecture Highlights
 
 - **Three-Tree System**: Widget tree (declarative), Element tree (runtime state), Render tree (GPU primitives)
