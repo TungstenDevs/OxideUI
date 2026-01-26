@@ -1,0 +1,30 @@
+[package]
+name = "oxideui-framework"
+version = "0.1.0"
+edition = "2024"
+authors = ["xOphiuchus"]
+description = "Jetpack Compose/Flutter inspired UI framwork made for Native GUI apps in Rust"
+license = "Apache-2.0"
+repository = "https://github.com/TungstenDevs/OxideUI"
+
+[workspace]
+members = ["oxideui"]
+resolver = "2"
+
+
+[dependencies]
+anyhow = "1.0.100"
+oxideui = { path = "oxideui", features = ["skia-opengl"] }
+tokio = { version = "1.49.0", features = ["full"] }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 2

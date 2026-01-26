@@ -1,0 +1,29 @@
+[package]
+name = "oxideui"
+version = "0.1.0"
+edition = "2021"
+description = "A modern UI framework inspired by Jetpack Compose and Flutter"
+authors = ["xOphiuchus"]
+license = "Apache-2.0"
+repository = "https://github.com/TungstenDevs/OxideUI"
+
+[dependencies]
+anyhow = "1.0.100"
+gl = "0.14.0"
+glutin = { version = "0.32.3", optional = true, features = ["egl", "glx", "wgl"] }
+glutin-winit = "0.5.0"
+oneshot = "0.1.11"
+parking_lot = "0.12.5"
+raw-window-handle = "0.6.2"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+skia-safe = { version = "0.91.1", features = ["gl", "save-svg-images", "textlayout", "svg", "webp"], optional = true }
+softbuffer = "0.4.8"
+winit = { version = "0.30.12", features = ["wayland", "x11", "rwh_06"] }
+winit_input_helper = "0.17.0"
+
+[features]
+default = ["skia-cpu"]
+skia-cpu = ["dep:skia-safe", "dep:glutin"]
+skia-opengl = ["dep:skia-safe", "dep:glutin", "skia-safe/gl"]
+production = []
